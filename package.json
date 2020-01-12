@@ -1,0 +1,43 @@
+{
+  "name": "flight-info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec npm run build",
+    "build": "babel src/ -d build/",
+    "build:prod": "BABEL_ENV=production npm run build",
+    "lint": "eslint --ext .js .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "flight-info": "./build/flightinfo.js"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "build/*/8.js", "build/*"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.8.0",
+    "@babel/core": "^7.8.0",
+    "@babel/node": "^7.8.0",
+    "@babel/plugin-transform-runtime": "^7.8.0",
+    "@babel/preset-env": "^7.8.0",
+    "@babel/register": "^7.8.0",
+    "@babel/runtime": "^7.8.0",
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "commander": "^4.1.0",
+    "iata-airports": "^1.0.4",
+    "inquirer": "^7.0.3"
+  }
+}
