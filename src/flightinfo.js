@@ -18,7 +18,6 @@ program
     .option('-d, --direct-only <Boolean>', 'Direct flights only, default false')
     .option('-b, --best-price <Boolean>', 'Best Price Mode. Find better prices slightly outside your travel dates')
     .option('-j, --top-airlines <Int>', 'Only display airlines with reviews above given number')
-    .option('-c, --chase-rewards <Boolean>', 'Connect to Chase Rewards for the flight')
     .action(async (command) => {
         try {
             const options = command.opts();

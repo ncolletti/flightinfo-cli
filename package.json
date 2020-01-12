@@ -15,7 +15,8 @@
   },
   "nodemonConfig": {
     "ignore": [
-      "build/*/8.js", "build/*"
+      "build/*/*.js",
+      "build/*"
     ]
   },
   "keywords": [],
