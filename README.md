@@ -3,12 +3,12 @@
 Handy CLI tool I'm using while travling. Can't be bothered with using heavy websites to get quick flight info.
 
 ## TODO
-- [  ] Complete all required dialogue messages
-- [  ] Add Services to check for prices from skypicker
-- [  ] Create best prices logic
-- [  ] Create a basic front-end view for Flight Changes
-- [  ] Add a time estimator to get to airport from current city
-
+- [ ] Complete all required dialogue messages
+- [ ] Add Services to check for prices from skypicker
+- [ ] Create best prices logic
+- [ ] Create a basic front-end view for Flight Changes
+- [ ] Add a time estimator to get to airport from current city
+- [ ] Use a flight api for existing trip information. Have had difficulties using [Opensky](https://opensky-network.org/apidoc/)
 
 ## Feature Ideas
 - Add a tracker to cron a job to check prices periodically and notify when the best price/flight combo is found.
@@ -16,30 +16,30 @@ Handy CLI tool I'm using while travling. Can't be bothered with using heavy webs
 
 ## Installation
 
-Not published on NPM yet: npm install -g flight-info  
+Not published on NPM yet: npm install -g flight-info
 <br>
-Git clone  
-npm install  
-npm link  
-npm run dev  
+Git clone
+npm install
+npm link
+npm run dev
 
 
 ## Usage
-In Terminal run:  
-```flight-info```  
+In Terminal run:
+```flight-info```
 Then follow the prompts!
 
-OR use args:  
-'-i, --info-only <flight_code>', 'Retrieve time, terminal, delay etc info'  
+OR use args:
+'-i, --info-only <flight_code>', 'Retrieve time, terminal, delay etc info'
 '-s, --start-airport <iata_code>', 'Departure airport'
-'-e, --end-airport <iata_code>', 'Arrival airport'  
+'-e, --end-airport <iata_code>', 'Arrival airport'
 '-t, --trip-type <one-way or round-trip>', 'One way or Round trip'
-'-d, --departure-date <date>', 'Departure date'  
-'-a, --arrival-date <date>', 'Arrival date'  
-'-d, --direct-only <Boolean>', 'Direct flights only, default false'  
-'-b, --best-price <Boolean>', 'Best Price Mode. Find better prices slightly outside your travel dates'  
-'-j, --top-airlines <Int>', 'Only display airlines with reviews above given number'  
- 
+'-d, --departure-date <date>', 'Departure date'
+'-a, --arrival-date <date>', 'Arrival date'
+'-d, --direct-only <Boolean>', 'Direct flights only, default false'
+'-b, --best-price <Boolean>', 'Best Price Mode. Find better prices slightly outside your travel dates'
+'-j, --top-airlines <Int>', 'Only display airlines with reviews above given number'
+
 
 ## Contributing
 
@@ -52,7 +52,7 @@ OR use args:
 
 ## Credits
 
-Much love to [jaebradley](https://github.com/jaebradley for many cool CLI tools as inspiration to this project.
+Much love to [jaebradley](https://github.com/jaebradley) for many cool CLI tools as inspiration to this project.
 
 ## License
 

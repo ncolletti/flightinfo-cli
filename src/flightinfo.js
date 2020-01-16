@@ -21,7 +21,6 @@ program
     .action(async (command) => {
         try {
             const options = command.opts();
-            console.log(`starting with ${JSON.stringify(options)}}`);
             // new up Class to parse cli args
             // new up Class to Search based on options
             const selectionGrabber = new SelectionGrabber();
