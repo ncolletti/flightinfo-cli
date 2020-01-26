@@ -1,5 +1,7 @@
 const inquirer = require('inquirer');
 
+[].len
+
 const tripPrompter = async (message) => {
          const answer = await inquirer // eslint-disable-line
         .prompt([
@@ -9,7 +11,7 @@ const tripPrompter = async (message) => {
                 message,
                 choices: [
                     {
-                        name: 'Round Trip',
+                        name: 'Round',
                     },
                     {
                         name: 'One Way',
@@ -28,7 +30,8 @@ const tripPrompter = async (message) => {
                 },
             },
         ])
-        .then((answers) => answers);
+        .then((answers) => answers.tripType[0].toLowerCase().replace(/\s/g,""));
+
     return answer;
 };
 

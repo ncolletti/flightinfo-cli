@@ -3,6 +3,7 @@
 import program from 'commander';
 import SelectionGrabber from './modules/SelectionGrabber';
 import pkg from '../package.json';
+import { testApi } from './services/kiwi'
 
 program
     .version(pkg.version)
@@ -18,15 +19,22 @@ program
     .option('-d, --direct-only <Boolean>', 'Direct flights only, default false')
     .option('-b, --best-price <Boolean>', 'Best Price Mode. Find better prices slightly outside your travel dates')
     .option('-j, --top-airlines <Int>', 'Only display airlines with reviews above given number')
+    .option('-z, --dev', 'dev mode shortcuts!')
     .action(async (command) => {
         try {
             const options = command.opts();
             // new up Class to parse cli args
             // new up Class to Search based on options
-            const selectionGrabber = new SelectionGrabber();
-            await selectionGrabber.run();
+            if(options.dev) {
+                console.log(`dev mode enabled!`);
+                testApi();
+            } else {
+                const selectionGrabber = new SelectionGrabber();
+                await selectionGrabber.run();
+            }
+
         } catch (e) {
-            console.error(`Eerror: ${e}`);
+            console.error(`Error: ${e}`);
         }
     });
 

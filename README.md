@@ -7,6 +7,7 @@ Handy CLI tool I'm using while travling. Can't be bothered with using heavy webs
 - [ ] Add Services to check for prices from skypicker
 - [ ] Create best prices logic
 - [ ] Create a basic front-end view for Flight Changes
+- [ ] Add children passenger type
 - [ ] Add a time estimator to get to airport from current city
 - [ ] Use a flight api for existing trip information. Have had difficulties using [Opensky](https://opensky-network.org/apidoc/)
 
@@ -20,8 +21,8 @@ Not published on NPM yet: npm install -g flight-info
 <br>
 Git clone
 npm install
+npm run build
 npm link
-npm run dev
 
 
 ## Usage
