@@ -11,7 +11,8 @@ const optionsPrompter = async () => {
             {
                 type: 'confirm',
                 name: 'bestPrice',
-                message: 'Would you like to use Best Price logic? (this mode finds best price around your flight dates)', // add docs on this
+                //TODO: return best_results param from response
+                message: 'Would you like to return the best flight and ignore others?', // add docs on this
             },
             {
                 type: 'confirm',

@@ -3,33 +3,32 @@
 Handy CLI tool I'm using while travling. Can't be bothered with using heavy websites to get quick flight info.
 
 ## TODO
-- [ ] Complete all required dialogue messages
+- [X] Complete all required dialogue messages
 - [ ] Add Services to check for prices from skypicker
-- [ ] Create best prices logic
 - [ ] Create a basic front-end view for Flight Changes
-- [ ] Add children passenger type
-- [ ] Add a time estimator to get to airport from current city
-- [ ] Use a flight api for existing trip information. Have had difficulties using [Opensky](https://opensky-network.org/apidoc/)
+- [ ] Use a flight api for existing trip information. Skypicker npm?
+
+## Limitations / Gotchas / Thoughts
+- Since I am using this for my own flights, this currently only works for 1 passenger
+- Didn't realize there was a [skypicker npm package](https://www.npmjs.com/package/skypicker) until I already built the url parsing for their http endpoint.
 
 ## Feature Ideas
 - Add a tracker to cron a job to check prices periodically and notify when the best price/flight combo is found.
 - Add a flight changes notifier. register with sms, email, or view on a webpage for up to date changes.
 
 ## Installation
-
-Not published on NPM yet: npm install -g flight-info
-<br>
-Git clone
+```
+git clone https://github.com/ncolletti/flightinfo-cli
 npm install
 npm run build
 npm link
-
+```
 
 ## Usage
 In Terminal run:
 ```flight-info```
 Then follow the prompts!
-
+```
 OR use args:
 '-i, --info-only <flight_code>', 'Retrieve time, terminal, delay etc info'
 '-s, --start-airport <iata_code>', 'Departure airport'
@@ -40,7 +39,7 @@ OR use args:
 '-d, --direct-only <Boolean>', 'Direct flights only, default false'
 '-b, --best-price <Boolean>', 'Best Price Mode. Find better prices slightly outside your travel dates'
 '-j, --top-airlines <Int>', 'Only display airlines with reviews above given number'
-
+```
 
 ## Contributing
 

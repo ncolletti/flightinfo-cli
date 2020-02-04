@@ -30,7 +30,22 @@ const cabinPrompter = async (message) => {
                 },
             },
         ])
-        .then((answers) => answers);
+        .then((answers) => {
+            // adjust value of selection to fit Kiwi api scheme
+            switch (answers.mode) {
+                case "Economy":
+                    return "M";
+                case "Economy Premium":
+                    return "W";
+                case "Business":
+                    return "C";
+                break;
+                case "First Class":
+                    return "F";
+                default:
+                    return "M";
+            }
+        });
     return answer;
 };
 

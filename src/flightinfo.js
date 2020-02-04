@@ -2,6 +2,7 @@
 
 import program from 'commander';
 import SelectionGrabber from './modules/SelectionGrabber';
+import FlightGrabber from './modules/FlightGrabber';
 import pkg from '../package.json';
 import { testApi } from './services/kiwi'
 
@@ -31,6 +32,11 @@ program
             } else {
                 const selectionGrabber = new SelectionGrabber();
                 await selectionGrabber.run();
+
+                const trip = selectionGrabber.getTripDetails();
+
+                const flightGrabber = new FlightGrabber(trip);
+                await flightGrabber.run();
             }
 
         } catch (e) {
