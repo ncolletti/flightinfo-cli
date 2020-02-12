@@ -5,7 +5,9 @@ import * as utils from '../../utils';
 
 const flightListPrompter = async (flights) => {
 
-    const choices = utils.buildChoices(flights);
+    await utils.buildAirlineName(flights);
+
+    const choices = flights.map((flight, i ) => `|${i}| ${(flight.airlineName)} || price: ${flight.price} || duration: ${flight.fly_duration}`);
 
     const answer = await inquirer // eslint-disable-line
         .prompt([{
@@ -14,7 +16,6 @@ const flightListPrompter = async (flights) => {
             message: 'Choose your flight from the list',
             choices,
             validate() {
-                // TODO: add validation
                 return true;
             },
         }])

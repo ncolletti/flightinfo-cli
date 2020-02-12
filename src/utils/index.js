@@ -1,4 +1,5 @@
-const airlines = require('airline-codes');
+
+import airlines from './airlines';
 
 /**
  * Formats an IsoDateTime "yyyy-mm-dd'T'HH:MM:ss" to Kiwi.com api format "%d\/%m\/%Y %H:%M"
@@ -12,15 +13,37 @@ export function dateSwap(date) {
     return `${day}/${month}/${year} ${hour}:${minute}`;
 }
 
-export async function grabAirlineName(route) {
-    const airline = await airlines.findWhere({
-        iata: route.airline,
-    }).get('name');
-    return airline;
+/**
+ * Search through array of Airline objects for Airline Name based on the IATA Code.
+ * @param string Airline IATA code
+ * @return string Airline Name
+ */
+export function grabAirlineName(iata) {
+
+    return new Promise((resolve, reject) => {
+        airlines.filter(function (airline) {
+            if (airline["IATACode"] == iata) {
+                resolve(airline["Airline"]);
+            }
+        });
+        reject('Unable to find Airline Iata Code');
+    });
 }
 
-export function buildChoices(flightData) {
-    console.log('NSC: buildChoices -> flightData', flightData[0]);
-    // TODO: build airline name into result - difficulty with promise from airlines pacakge and many results to display
-    return flightData.map((flight) => `price: ${flight.price} || duration: ${flight.fly_duration}`);
+/**
+ * Mutates airline data to add Airline name
+ * @param array FlightData{}
+ * @return string airline results
+ */
+export async function buildAirlineName(flightData) {
+    await flightData.forEach(async (flight) => {
+        let airlineName = 'NA';
+        try {
+            airlineName = await this.grabAirlineName(flight.airlines[0]);
+        } catch (error) {
+            console.log(error)
+        }
+
+        flight.airlineName = airlineName;
+    });
 }

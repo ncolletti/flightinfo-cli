@@ -14,14 +14,33 @@ class FlightGrabber {
         // flights received - return results to user with prompters
         const flights = flightData.data;
 
-        const flightsReduced = this.sortAndTruncateToSix(flights);
+        // reduce to top 10 flights based on price
+        const flightsTrimmmed = this.sortAndTruncate(flights, 10);
 
-        const chosenFlight = await FlightListPrompter(flightsReduced);
-        console.log('NSC: FlightGrabber -> run -> chosenFlight', chosenFlight);
+        const { chosenFlight } = await FlightListPrompter(flightsTrimmmed);
+
+        let index = this.findFlightIndex(chosenFlight);
+
+        if(index && index.length > 0) {
+            index = index[1]
+            this.setFlight(flightsTrimmmed[index]);
+        }
     }
 
-    sortAndTruncateToSix(flightData) {
-        return flightData.data.sort((a, b) => ((a.price > b.price) ? 1 : -1)).splice(0, 6);
+    sortAndTruncate(flightData, max) {
+        return flightData.data.sort((a, b) => ((a.price > b.price) ? 1 : -1)).splice(0, max);
+    }
+
+    findFlightIndex(chosenFlight) {
+        return chosenFlight.match(/^\|(\d)\|/);
+    }
+
+    setFlight(flight) {
+        this.flight = flight;
+    }
+
+    getFlight() {
+        return this.flight;
     }
 }
 

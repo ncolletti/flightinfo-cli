@@ -37,11 +37,12 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "airline-codes": "^1.0.2",
+    "airlines-iata-codes": "^1.0.1",
     "axios": "^0.19.2",
     "commander": "^4.1.0",
     "iata-airports": "^1.0.4",
     "inquirer": "^7.0.3",
-    "inquirer-datepicker-prompt": "^0.4.2"
+    "inquirer-datepicker-prompt": "^0.4.2",
+    "opn": "^6.0.0"
   }
 }

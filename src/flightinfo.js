@@ -5,6 +5,7 @@ import SelectionGrabber from './modules/SelectionGrabber';
 import FlightGrabber from './modules/FlightGrabber';
 import pkg from '../package.json';
 import { testApi } from './services/kiwi'
+import opn from 'opn';
 
 program
     .version(pkg.version)
@@ -37,6 +38,12 @@ program
 
                 const flightGrabber = new FlightGrabber(trip);
                 await flightGrabber.run();
+
+                const flight = flightGrabber.getFlight();
+
+                console.log(`Now go purchase your flight!`);
+
+                opn(flight.deep_link);
             }
 
         } catch (e) {

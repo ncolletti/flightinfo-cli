@@ -30,7 +30,7 @@ class SelectionGrabber {
         if (mode[0] === 'New Trip') {
             const { departureAirport } = await AirportPrompter('departureAirport', 'Enter your Departure Airport Code');
             const { arrivalAirport } = await AirportPrompter('arrivalAirport', 'Enter your Arrival Airport Code');
-            const tripType = await TripPrompter();
+            const tripType = await TripPrompter('What type of flight?');
             const departureDate = await DatePrompter('Enter your Depature date and time');
 
 
